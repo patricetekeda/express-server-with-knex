@@ -1,0 +1,15 @@
+require("dotenv").config();
+
+const path = require("path");
+
+const { DATABASE_URL } = process.env;
+
+module.exports = {
+  development: {
+    client: "pg",
+    connection: DATABASE_URL,
+    migrations: {
+      directory: path.join(__dirname, "src", "db", "migrations"),
+    },
+  },
+};
